@@ -27,15 +27,6 @@ class alumni extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          // child: ClipRect(
-          //   child: new BackdropFilter(
-          //     filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-          //     child: new Container(
-          //       decoration:
-          //           new BoxDecoration(color: Colors.white.withOpacity(0.0)),
-          //     ),
-          //   ),
-          // ),
         ),
         Container(
           ///height: 700,
@@ -72,10 +63,12 @@ class alumni extends StatelessWidget {
                   children: const [
                     Padding(
                       padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
+                      child: AvatarCustom(
+                        images: 'assets/images/shubham.png',
+                      ),
                     ),
                     textCustom(
-                        name: "Saurav Kumar",
+                        name: "Shubham Kumar",
                         detail1: "CSE hit 2019",
                         detail2: "ex:- onMobile Global Limited"),
                   ],
@@ -84,10 +77,93 @@ class alumni extends StatelessWidget {
                   children: const [
                     Padding(
                       padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
+                      child: AvatarCustom(
+                        images: "assets/images/niraj.png",
+                      ),
                     ),
                     textCustom(
-                        name: "Saurav Kumar",
+                        name: "Niraj Kumar",
+                        detail1: "ECE HIT, 2019",
+                        detail2: "Indian audit & accounts department,patna"),
+                  ],
+                ),
+                Column(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: AvatarCustom(
+                        images: "assets/images/abhimanyu.png",
+                      ),
+                    ),
+                    textCustom(
+                        name: "Abhimanyu Kumar",
+                        detail1: "ME HIT, 2018",
+                        detail2: "TCS (Software engineer )"),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: AvatarCustom(
+                        images: "assets/images/akash.png",
+                      ),
+                    ),
+                    textCustom(
+                        name: "Akash Kumar",
+                        detail1: "HIT, 2019 passout",
+                        detail2:
+                            "INFOSYS ( Software engineer ) EX:- TEST ENGINEER"),
+                  ],
+                ),
+                Column(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: AvatarCustom(
+                        images: "assets/images/arvind.png",
+                      ),
+                    ),
+                    textCustom(
+                        name: "Arvind Gupta",
+                        detail1: "HIT, 2019 passout",
+                        detail2: "AMDOCS ( Software Developer)"),
+                  ],
+                ),
+                Column(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: AvatarCustom(
+                        images: "assets/images/ashish.png",
+                      ),
+                    ),
+                    textCustom(
+                        name: "Ashish Goyal",
+                        detail1: "CSE HIT, 2017",
+                        detail2: "M.Tech.(CSE) IITB Ex:- Infosys"),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: AvatarCustom(
+                        images: "assets/images/avinash.png",
+                      ),
+                    ),
+                    textCustom(
+                        name: "Abinash Kumar Shaw",
                         detail1: "CSE hit 2019",
                         detail2: "ex:- onMobile Global Limited"),
                   ],
@@ -96,10 +172,26 @@ class alumni extends StatelessWidget {
                   children: const [
                     Padding(
                       padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
+                      child: AvatarCustom(
+                        images: "assets/images/chandan.png",
+                      ),
                     ),
                     textCustom(
-                        name: "Saurav Kumar",
+                        name: "Chandan Kumar",
+                        detail1: "CSE hit 2019",
+                        detail2: "ex:- onMobile Global Limited"),
+                  ],
+                ),
+                Column(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: AvatarCustom(
+                        images: "assets/images/purosottam.png",
+                      ),
+                    ),
+                    textCustom(
+                        name: "Purusottam Anand",
                         detail1: "CSE hit 2019",
                         detail2: "ex:- onMobile Global Limited"),
                   ],
@@ -113,7 +205,23 @@ class alumni extends StatelessWidget {
                   children: const [
                     Padding(
                       padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
+                      child: AvatarCustom(
+                        images: "assets/images/rohit.png",
+                      ),
+                    ),
+                    textCustom(
+                        name: "Rohit Kumar",
+                        detail1: "CSE hit 2019",
+                        detail2: "ex:- onMobile Global Limited"),
+                  ],
+                ),
+                Column(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(top: 50),
+                      child: AvatarCustom(
+                        images: "assets/images/rohit.png",
+                      ),
                     ),
                     textCustom(
                         name: "Saurav Kumar",
@@ -125,107 +233,43 @@ class alumni extends StatelessWidget {
                   children: const [
                     Padding(
                       padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
+                      child: AvatarCustom(
+                        images: "assets/images/rohit.png",
+                      ),
                     ),
                     textCustom(
-                        name: "Saurav Kumar",
-                        detail1: "CSE hit 2019",
-                        detail2: "ex:- onMobile Global Limited"),
-                  ],
-                ),
-                Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
-                    ),
-                    textCustom(
-                        name: "Saurav Kumar",
-                        detail1: "CSE hit 2019",
-                        detail2: "ex:- onMobile Global Limited"),
-                  ],
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
-                    ),
-                    textCustom(
-                        name: "Saurav Kumar",
-                        detail1: "CSE hit 2019",
-                        detail2: "ex:- onMobile Global Limited"),
-                  ],
-                ),
-                Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
-                    ),
-                    textCustom(
-                        name: "Saurav Kumar",
-                        detail1: "CSE hit 2019",
-                        detail2: "ex:- onMobile Global Limited"),
-                  ],
-                ),
-                Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
-                    ),
-                    textCustom(
-                        name: "Saurav Kumar",
-                        detail1: "CSE hit 2019",
-                        detail2: "ex:- onMobile Global Limited"),
+                        name: "Sumit Kamal",
+                        detail1: "CHE hit 2014",
+                        detail2:
+                            "IIT Bombay (PhD student)\n& UG: Silver Medalist"),
                   ],
                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            SizedBox(
+              height: 25,
+            ),
+            Column(
               children: [
-                Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
-                    ),
-                    textCustom(
-                        name: "Saurav Kumar",
-                        detail1: "CSE hit 2019",
-                        detail2: "ex:- onMobile Global Limited"),
-                  ],
+                SizedBox(
+                  height: 10,
                 ),
-                Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
-                    ),
-                    textCustom(
-                        name: "Saurav Kumar",
-                        detail1: "CSE hit 2019",
-                        detail2: "ex:- onMobile Global Limited"),
-                  ],
+                Text(
+                  "And Many More",
+                  style: GoogleFonts.caveat(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(top: 50),
-                      child: AvatarCustom(),
-                    ),
-                    textCustom(
-                        name: "Saurav Kumar",
-                        detail1: "CSE hit 2019",
-                        detail2: "ex:- onMobile Global Limited"),
-                  ],
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  margin: EdgeInsets.fromLTRB(650, 0, 650, 0),
+                  color: Colors.redAccent,
+                  width: double.maxFinite,
+                  height: 3,
                 ),
               ],
             ),

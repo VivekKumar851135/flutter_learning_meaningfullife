@@ -20,11 +20,12 @@ class _couresa_custom2ndState extends State<couresa_custom2nd> {
 
   int _current = 0;
   final List<String> images1 = [
-    'assets/images/templete2.png',
-    'assets/images/templete2.png',
-    'assets/images/templete2.png',
-    'assets/images/templete2.png',
-    'assets/images/templete2.png',
+    'assets/images/templeteshort1.png',
+    'assets/images/templeteshort2.png',
+    'assets/images/templeteshort3.png',
+    'assets/images/templeteshort4.png',
+    'assets/images/templeteshort5.png',
+    'assets/images/templeteshort6.png',
   ];
   List<Widget> generateImageTiles() {
     return images1
@@ -91,11 +92,12 @@ class _couresalCustom3State extends State<couresalCustom3> {
 
   int _current = 0;
   final List<String> images1 = [
-    'assets/images/templete2.png',
-    'assets/images/templete2.png',
-    'assets/images/templete2.png',
-    'assets/images/templete2.png',
-    'assets/images/templete2.png',
+    'assets/images/templeteshort1.png',
+    'assets/images/templeteshort2.png',
+    'assets/images/templeteshort3.png',
+    'assets/images/templeteshort4.png',
+    'assets/images/templeteshort5.png',
+    'assets/images/templeteshort6.png',
   ];
   List<Widget> generateImageTiles() {
     return images1

@@ -2,6 +2,8 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:popup_card/popup_card.dart';
+import 'package:untitled/popupBody.dart';
 import 'package:untitled/widgets/couresal_custom2nd.dart';
 import 'package:untitled/widgets/custom_widgets.dart';
 import 'package:untitled/widgets/drawer.dart';
@@ -18,6 +20,42 @@ class _elseCustom5State extends State<elseCustom5> {
   final GlobalKey<ExpansionTileCardState> cardB = new GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardC = new GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardD = new GlobalKey();
+  final homeitemKey = GlobalKey();
+  final discoveritemKey2 = GlobalKey();
+  final aboutitemKey3 = GlobalKey();
+  final membersitemKey4 = GlobalKey();
+  final faqsitemKey5 = GlobalKey();
+  final contactusitemKey6 = GlobalKey();
+  Future homeScrollToItem() async {
+    final context = homeitemKey.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future discoverScrollToItem2() async {
+    final context = discoveritemKey2.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future aboutScrollToItem3() async {
+    final context = aboutitemKey3.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future membersScrollToItem4() async {
+    final context = membersitemKey4.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future faqsScrollToItem5() async {
+    final context = faqsitemKey5.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future contactusScrollToItem6() async {
+    final context = contactusitemKey6.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,19 +72,226 @@ class _elseCustom5State extends State<elseCustom5> {
           ),
         ),
       ),
-      drawer: ExploreDrawer(),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.tealAccent,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Welcome to".toUpperCase(),
+                  style: TextStyle(
+                      letterSpacing: 2,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "Learning MeaningFul Life",
+                  style: GoogleFonts.dancingScript(
+                    color: Colors.black54,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.maxFinite,
+                  height: 1,
+                  color: Colors.black.withOpacity(0.8),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    discoverScrollToItem2();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.explore,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "Discover",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    aboutScrollToItem3();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.book,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "About",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    membersScrollToItem4();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "Members",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    faqsScrollToItem5();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.question_answer,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "FAQ's",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    contactusScrollToItem6();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.contact_mail,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "Contact us",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Stack(
           children: [
-            Container(
-              width: double.maxFinite,
-              height: 620,
-              child: Image.asset(
-                'assets/images/background4.jpg',
-                fit: BoxFit.fill,
+            Stack(children: [
+              Container(
+                width: double.maxFinite,
+                height: 620,
+                child: Image.asset(
+                  'assets/images/background3.jpg',
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
+              Container(
+                height: 620,
+                width: double.maxFinite,
+                color: Colors.black.withOpacity(0.5),
+              ),
+            ]),
             Column(
               children: [
                 couresa_custom2nd(),
@@ -55,6 +300,8 @@ class _elseCustom5State extends State<elseCustom5> {
                     Stack(
                       children: [
                         Container(
+                          key: discoveritemKey2,
+
                           ///height: 700,
                           width: double.maxFinite,
                           child: Image.asset(
@@ -102,11 +349,11 @@ class _elseCustom5State extends State<elseCustom5> {
                           height: 20,
                         ),
                         Text(
-                          "upcoming Events",
+                          "Upcoming Events",
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.caveat(
                             color: Colors.black,
-                            fontSize: 30,
+                            fontSize: 35,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -132,9 +379,9 @@ class _elseCustom5State extends State<elseCustom5> {
                         Text(
                           "Recents Events",
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.caveat(
                             color: Colors.black,
-                            fontSize: 30,
+                            fontSize: 35,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -160,13 +407,16 @@ class _elseCustom5State extends State<elseCustom5> {
                             // SizedBox(
                             //   height: 20,
                             // ),
-                            Text(
-                              "About",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.robotoMono(
-                                color: Colors.black,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
+                            Container(
+                              key: aboutitemKey3,
+                              child: Text(
+                                "About",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.caveat(
+                                  color: Colors.black,
+                                  fontSize: 35,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                             SizedBox(height: 5),
@@ -199,6 +449,8 @@ class _elseCustom5State extends State<elseCustom5> {
                         Stack(
                           children: [
                             Container(
+                              key: membersitemKey4,
+
                               ///height: 700,
                               width: double.maxFinite,
                               height: 1000,
@@ -220,7 +472,7 @@ class _elseCustom5State extends State<elseCustom5> {
                             Container(
                               ///height: 700,
                               width: double.maxFinite,
-                              height: 1000,
+                              height: 800,
                               child: Image.asset(
                                 'assets/images/info.jpg',
                                 fit: BoxFit.cover,
@@ -229,7 +481,7 @@ class _elseCustom5State extends State<elseCustom5> {
                             Container(
                               ///height: 700,
                               width: double.maxFinite,
-                              height: 1000,
+                              height: 800,
                               color: Colors.white.withOpacity(0.5),
                             ),
                           ],
@@ -239,7 +491,7 @@ class _elseCustom5State extends State<elseCustom5> {
                             Container(
                               ///height: 700,
                               width: double.maxFinite,
-                              height: 1000,
+                              height: 800,
                               child: Image.asset(
                                 'assets/images/info.jpg',
                                 fit: BoxFit.cover,
@@ -248,7 +500,7 @@ class _elseCustom5State extends State<elseCustom5> {
                             Container(
                               ///height: 700,
                               width: double.maxFinite,
-                              height: 1000,
+                              height: 800,
                               color: Colors.white.withOpacity(0.5),
                             ),
                           ],
@@ -277,7 +529,7 @@ class _elseCustom5State extends State<elseCustom5> {
                             Container(
                               ///height: 700,
                               width: double.maxFinite,
-                              height: 1000,
+                              height: 900,
                               child: Image.asset(
                                 'assets/images/info.jpg',
                                 fit: BoxFit.cover,
@@ -286,7 +538,7 @@ class _elseCustom5State extends State<elseCustom5> {
                             Container(
                               ///height: 700,
                               width: double.maxFinite,
-                              height: 1000,
+                              height: 900,
                               color: Colors.white.withOpacity(0.5),
                             ),
                           ],
@@ -317,10 +569,11 @@ class _elseCustom5State extends State<elseCustom5> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                              child: AvatarCustom(
+                                  images: 'assets/images/shubham.png'),
                             ),
                             textCustom(
-                                name: "Saurav Kumar",
+                                name: "Shubham Kumar",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -329,10 +582,84 @@ class _elseCustom5State extends State<elseCustom5> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                              child: AvatarCustom(
+                                images: "assets/images/niraj.png",
+                              ),
                             ),
                             textCustom(
-                                name: "Saurav Kumar",
+                                name: "Niraj Kumar",
+                                detail1: "ECE HIT, 2019",
+                                detail2:
+                                    "Indian audit & accounts department,patna"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: AvatarCustom(
+                                images: "assets/images/abhimanyu.png",
+                              ),
+                            ),
+                            textCustom(
+                                name: "Abhimanyu Kumar",
+                                detail1: "ME HIT, 2018",
+                                detail2: "TCS (Software engineer )"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: AvatarCustom(
+                                images: "assets/images/akash.png",
+                              ),
+                            ),
+                            textCustom(
+                                name: "Akash Kumar",
+                                detail1: "HIT, 2019 passout",
+                                detail2:
+                                    "INFOSYS ( Software engineer ) EX:- TEST ENGINEER"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: AvatarCustom(
+                                images: "assets/images/arvind.png",
+                              ),
+                            ),
+                            textCustom(
+                                name: "Arvind Gupta",
+                                detail1: "HIT, 2019 passout",
+                                detail2: "AMDOCS ( Software Developer)"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: AvatarCustom(
+                                images: "assets/images/ashish.png",
+                              ),
+                            ),
+                            textCustom(
+                                name: "Ashish Goyal",
+                                detail1: "CSE HIT, 2017",
+                                detail2: "M.Tech.(CSE) IITB Ex:- Infosys"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: AvatarCustom(
+                                images: "assets/images/avinash.png",
+                              ),
+                            ),
+                            textCustom(
+                                name: "Abinash Kumar Shaw",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -341,10 +668,12 @@ class _elseCustom5State extends State<elseCustom5> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                              child: AvatarCustom(
+                                images: "assets/images/chandan.png",
+                              ),
                             ),
                             textCustom(
-                                name: "Saurav Kumar",
+                                name: "Chandan Kumar",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -353,10 +682,12 @@ class _elseCustom5State extends State<elseCustom5> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                              child: AvatarCustom(
+                                images: "assets/images/purosottam.png",
+                              ),
                             ),
                             textCustom(
-                                name: "Saurav Kumar",
+                                name: "Purusottam Anand",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -365,10 +696,12 @@ class _elseCustom5State extends State<elseCustom5> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                              child: AvatarCustom(
+                                images: "assets/images/rohit.png",
+                              ),
                             ),
                             textCustom(
-                                name: "Saurav Kumar",
+                                name: "Sumit Kamal",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -377,84 +710,42 @@ class _elseCustom5State extends State<elseCustom5> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                              child: AvatarCustom(
+                                images: "assets/images/rohit.png",
+                              ),
                             ),
                             textCustom(
                                 name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
+                                detail1: "CHE hit 2014",
+                                detail2:
+                                    "IIT Bombay (PhD student) & UG: Silver Medalist"),
                           ],
                         ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
-                            ),
-                            textCustom(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
+                        SizedBox(
+                          height: 25,
                         ),
                         Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                          children: [
+                            SizedBox(
+                              height: 10,
                             ),
-                            textCustom(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                            Text(
+                              "And Many More",
+                              style: GoogleFonts.caveat(
+                                color: Colors.black,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            textCustom(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                            SizedBox(
+                              height: 10,
                             ),
-                            textCustom(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
+                            Container(
+                              margin: EdgeInsets.fromLTRB(180, 0, 180, 0),
+                              color: Colors.redAccent,
+                              width: double.maxFinite,
+                              height: 3,
                             ),
-                            textCustom(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: AvatarCustom(),
-                            ),
-                            textCustom(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
                           ],
                         ),
                         Column(
@@ -464,13 +755,16 @@ class _elseCustom5State extends State<elseCustom5> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(height: 80),
-                                Text(
-                                  "FAQ's",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.robotoMono(
-                                    color: Colors.black,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
+                                Container(
+                                  key: faqsitemKey5,
+                                  child: Text(
+                                    "FAQ's",
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.robotoMono(
+                                      color: Colors.black,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(height: 5),
@@ -519,8 +813,7 @@ class _elseCustom5State extends State<elseCustom5> {
                                         vertical: 8.0,
                                       ),
                                       child: Text(
-                                        "FlutterDevs specializes in creating cost-effective and efficient applications with our perfectly crafted,"
-                                        " creative and leading-edge flutter app development solutions for customers all around the globe.",
+                                        "LML stands for Learning Meaningful Life.",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500),
@@ -563,8 +856,7 @@ class _elseCustom5State extends State<elseCustom5> {
                                         vertical: 8.0,
                                       ),
                                       child: Text(
-                                        "FlutterDevs specializes in creating cost-effective and efficient applications with our perfectly crafted,"
-                                        " creative and leading-edge flutter app development solutions for customers all around the globe.",
+                                        "LML is an e-community of HIT Haldia Alumni. So it is runned by world-wide  alumni community of HIT Haldia who have common purpose in learning meaningful life.",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500),
@@ -607,8 +899,7 @@ class _elseCustom5State extends State<elseCustom5> {
                                         vertical: 8.0,
                                       ),
                                       child: Text(
-                                        "FlutterDevs specializes in creating cost-effective and efficient applications with our perfectly crafted,"
-                                        " creative and leading-edge flutter app development solutions for customers all around the globe.",
+                                        "Certainly not. This is e-community of your Alumni who live by what they teach. The unique thing is that you continue to stay on with us till you pass out, after you pass out & forever. Even more uniqueness is in the purpose – our purpose is to help you get real direction along with the speed of technology you learn, so that you start learning meaningful life based on eternal principles of Bhagavad Gita.",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500),
@@ -651,8 +942,7 @@ class _elseCustom5State extends State<elseCustom5> {
                                         vertical: 8.0,
                                       ),
                                       child: Text(
-                                        "FlutterDevs specializes in creating cost-effective and efficient applications with our perfectly crafted,"
-                                        " creative and leading-edge flutter app development solutions for customers all around the globe.",
+                                        "Yes. But, not in terms of money. That we, your Alumni, will bare. You need to qualify with your eagerness to really want to be benefitted. Nothing comes free.",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500),
@@ -695,6 +985,7 @@ class _elseCustom5State extends State<elseCustom5> {
                 Stack(
                   children: [
                     Container(
+                      key: contactusitemKey6,
                       width: double.maxFinite,
                       height: 900,
                       child: Image.asset('assets/images/footer.jpg',

@@ -33,19 +33,60 @@ class _elseTwoState extends State<elseTwo> {
     false,
     false
   ];
+  final homeitemKey = GlobalKey();
+  final discoveritemKey2 = GlobalKey();
+  final aboutitemKey3 = GlobalKey();
+  final membersitemKey4 = GlobalKey();
+  final faqsitemKey5 = GlobalKey();
+  final contactusitemKey6 = GlobalKey();
+  Future homeScrollToItem() async {
+    final context = homeitemKey.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future discoverScrollToItem2() async {
+    final context = discoveritemKey2.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future aboutScrollToItem3() async {
+    final context = aboutitemKey3.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future membersScrollToItem4() async {
+    final context = membersitemKey4.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future faqsScrollToItem5() async {
+    final context = faqsitemKey5.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future contactusScrollToItem6() async {
+    final context = contactusitemKey6.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Stack(
         children: [
-          Container(
-            width: double.maxFinite,
-            child: Image.asset(
-              'assets/images/background4.jpg',
-              fit: BoxFit.cover,
+          Stack(children: [
+            Container(
+              width: double.maxFinite,
+              child: Image.asset(
+                'assets/images/background3.jpg',
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
+            Container(
+              width: double.maxFinite,
+              color: Colors.black.withOpacity(0.5),
+            ),
+          ]),
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Stack(
@@ -81,49 +122,13 @@ class _elseTwoState extends State<elseTwo> {
                                   onHover: (value) {
                                     setState(() {
                                       value
-                                          ? _isHovering[0] = true
-                                          : _isHovering[0] = false;
-                                    });
-                                  },
-                                  onTap: () {},
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(
-                                        'Home',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 13,
-                                          color: _isHovering[0]
-                                              ? Colors.redAccent
-                                              : Colors.white,
-                                        ),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Visibility(
-                                        maintainAnimation: true,
-                                        maintainState: true,
-                                        maintainSize: true,
-                                        visible: _isHovering[0],
-                                        child: Container(
-                                          height: 2,
-                                          width: 20,
-                                          color: Colors.white,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(width: 20),
-                                InkWell(
-                                  onHover: (value) {
-                                    setState(() {
-                                      value
                                           ? _isHovering[1] = true
                                           : _isHovering[1] = false;
                                     });
                                   },
-                                  onTap: () {},
+                                  onTap: () {
+                                    discoverScrollToItem2();
+                                  },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -161,7 +166,9 @@ class _elseTwoState extends State<elseTwo> {
                                           : _isHovering[2] = false;
                                     });
                                   },
-                                  onTap: () {},
+                                  onTap: () {
+                                    aboutScrollToItem3();
+                                  },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -199,7 +206,9 @@ class _elseTwoState extends State<elseTwo> {
                                           : _isHovering[3] = false;
                                     });
                                   },
-                                  onTap: () {},
+                                  onTap: () {
+                                    membersScrollToItem4();
+                                  },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -237,7 +246,9 @@ class _elseTwoState extends State<elseTwo> {
                                           : _isHovering[4] = false;
                                     });
                                   },
-                                  onTap: () {},
+                                  onTap: () {
+                                    faqsScrollToItem5();
+                                  },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -275,7 +286,9 @@ class _elseTwoState extends State<elseTwo> {
                                           : _isHovering[5] = false;
                                     });
                                   },
-                                  onTap: () {},
+                                  onTap: () {
+                                    contactusScrollToItem6();
+                                  },
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -316,6 +329,8 @@ class _elseTwoState extends State<elseTwo> {
                         Column(
                           children: [
                             Container(
+                              key: discoveritemKey2,
+
                               ///height: 700,
                               width: double.maxFinite,
                               child: Image.asset(
@@ -378,7 +393,7 @@ class _elseTwoState extends State<elseTwo> {
                                   Text(
                                     "upcoming Events",
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.robotoMono(
+                                    style: GoogleFonts.caveat(
                                       color: Colors.black,
                                       fontSize: 35,
                                       fontWeight: FontWeight.bold,
@@ -417,7 +432,7 @@ class _elseTwoState extends State<elseTwo> {
                                   Text(
                                     "Recents Events",
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.robotoMono(
+                                    style: GoogleFonts.caveat(
                                       color: Colors.black,
                                       fontSize: 35,
                                       fontWeight: FontWeight.bold,
@@ -446,6 +461,7 @@ class _elseTwoState extends State<elseTwo> {
                               ),
                             ),
                             Container(
+                              key: aboutitemKey3,
                               height: 600,
 
                               //900,
@@ -461,7 +477,7 @@ class _elseTwoState extends State<elseTwo> {
                                   Text(
                                     "About",
                                     textAlign: TextAlign.center,
-                                    style: GoogleFonts.robotoMono(
+                                    style: GoogleFonts.caveat(
                                       color: Colors.black,
                                       fontSize: 35,
                                       fontWeight: FontWeight.bold,
@@ -470,7 +486,7 @@ class _elseTwoState extends State<elseTwo> {
                                   SizedBox(height: 5),
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(
-                                        465, 0, 465, 0),
+                                        420, 0, 420, 0),
                                     child: Container(
                                       color: Colors.redAccent,
                                       width: double.maxFinite,
@@ -496,6 +512,8 @@ class _elseTwoState extends State<elseTwo> {
                     Stack(
                       children: [
                         Container(
+                          key: membersitemKey4,
+
                           ///height: 700,
                           width: double.maxFinite,
                           height: 2200,
@@ -542,10 +560,11 @@ class _elseTwoState extends State<elseTwo> {
                                   children: const [
                                     Padding(
                                       padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
+                                      child: avatarCustom2(
+                                          images: 'assets/images/shubham.png'),
                                     ),
                                     textCustom(
-                                        name: "Saurav Kumar",
+                                        name: "Shubham Kumar",
                                         detail1: "CSE hit 2019",
                                         detail2:
                                             "ex:- onMobile Global Limited"),
@@ -555,10 +574,96 @@ class _elseTwoState extends State<elseTwo> {
                                   children: const [
                                     Padding(
                                       padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
+                                      child: avatarCustom2(
+                                        images: "assets/images/niraj.png",
+                                      ),
                                     ),
                                     textCustom(
-                                        name: "Saurav Kumar",
+                                        name: "Niraj Kumar",
+                                        detail1: "ECE HIT, 2019",
+                                        detail2:
+                                            "Indian audit & accounts department,patna"),
+                                  ],
+                                ),
+                                Column(
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 50),
+                                      child: avatarCustom2(
+                                        images: "assets/images/abhimanyu.png",
+                                      ),
+                                    ),
+                                    textCustom(
+                                        name: "Abhimanyu Kumar",
+                                        detail1: "ME HIT, 2018",
+                                        detail2: "TCS (Software engineer )"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 50),
+                                      child: avatarCustom2(
+                                        images: "assets/images/akash.png",
+                                      ),
+                                    ),
+                                    textCustom(
+                                        name: "Akash Kumar",
+                                        detail1: "HIT, 2019 passout",
+                                        detail2:
+                                            "INFOSYS ( Software engineer ) EX:- TEST ENGINEER"),
+                                  ],
+                                ),
+                                Column(
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 50),
+                                      child: avatarCustom2(
+                                        images: "assets/images/arvind.png",
+                                      ),
+                                    ),
+                                    textCustom(
+                                        name: "Arvind Gupta",
+                                        detail1: "HIT, 2019 passout",
+                                        detail2:
+                                            "AMDOCS ( Software Developer)"),
+                                  ],
+                                ),
+                                Column(
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 50),
+                                      child: avatarCustom2(
+                                        images: "assets/images/ashish.png",
+                                      ),
+                                    ),
+                                    textCustom(
+                                        name: "Ashish Goyal",
+                                        detail1: "CSE HIT, 2017",
+                                        detail2:
+                                            "M.Tech.(CSE) IITB Ex:- Infosys"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 50),
+                                      child: avatarCustom2(
+                                        images: "assets/images/avinash.png",
+                                      ),
+                                    ),
+                                    textCustom(
+                                        name: "Abinash Kumar Shaw",
                                         detail1: "CSE hit 2019",
                                         detail2:
                                             "ex:- onMobile Global Limited"),
@@ -568,10 +673,27 @@ class _elseTwoState extends State<elseTwo> {
                                   children: const [
                                     Padding(
                                       padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
+                                      child: avatarCustom2(
+                                        images: "assets/images/chandan.png",
+                                      ),
                                     ),
                                     textCustom(
-                                        name: "Saurav Kumar",
+                                        name: "Chandan Kumar",
+                                        detail1: "CSE hit 2019",
+                                        detail2:
+                                            "ex:- onMobile Global Limited"),
+                                  ],
+                                ),
+                                Column(
+                                  children: const [
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 50),
+                                      child: avatarCustom2(
+                                        images: "assets/images/purosottam.png",
+                                      ),
+                                    ),
+                                    textCustom(
+                                        name: "Purusottam Anand",
                                         detail1: "CSE hit 2019",
                                         detail2:
                                             "ex:- onMobile Global Limited"),
@@ -586,10 +708,12 @@ class _elseTwoState extends State<elseTwo> {
                                   children: const [
                                     Padding(
                                       padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
+                                      child: avatarCustom2(
+                                        images: "assets/images/rohit.png",
+                                      ),
                                     ),
                                     textCustom(
-                                        name: "Saurav Kumar",
+                                        name: "Rohit Kumar",
                                         detail1: "CSE hit 2019",
                                         detail2:
                                             "ex:- onMobile Global Limited"),
@@ -599,10 +723,12 @@ class _elseTwoState extends State<elseTwo> {
                                   children: const [
                                     Padding(
                                       padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
+                                      child: avatarCustom2(
+                                        images: "assets/images/rohit.png",
+                                      ),
                                     ),
                                     textCustom(
-                                        name: "Saurav Kumar",
+                                        name: "Sumit Kamal",
                                         detail1: "CSE hit 2019",
                                         detail2:
                                             "ex:- onMobile Global Limited"),
@@ -612,102 +738,43 @@ class _elseTwoState extends State<elseTwo> {
                                   children: const [
                                     Padding(
                                       padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
+                                      child: avatarCustom2(
+                                        images: "assets/images/rohit.png",
+                                      ),
                                     ),
                                     textCustom(
                                         name: "Saurav Kumar",
-                                        detail1: "CSE hit 2019",
+                                        detail1: "CHE hit 2014",
                                         detail2:
-                                            "ex:- onMobile Global Limited"),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Column(
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
-                                    ),
-                                    textCustom(
-                                        name: "Saurav Kumar",
-                                        detail1: "CSE hit 2019",
-                                        detail2:
-                                            "ex:- onMobile Global Limited"),
-                                  ],
-                                ),
-                                Column(
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
-                                    ),
-                                    textCustom(
-                                        name: "Saurav Kumar",
-                                        detail1: "CSE hit 2019",
-                                        detail2:
-                                            "ex:- onMobile Global Limited"),
-                                  ],
-                                ),
-                                Column(
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
-                                    ),
-                                    textCustom(
-                                        name: "Saurav Kumar",
-                                        detail1: "CSE hit 2019",
-                                        detail2:
-                                            "ex:- onMobile Global Limited"),
+                                            "IIT Bombay (PhD student)\n & UG: Silver Medalist"),
                                   ],
                                 ),
                               ],
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            SizedBox(
+                              height: 25,
+                            ),
+                            Column(
                               children: [
-                                Column(
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
-                                    ),
-                                    textCustom(
-                                        name: "Saurav Kumar",
-                                        detail1: "CSE hit 2019",
-                                        detail2:
-                                            "ex:- onMobile Global Limited"),
-                                  ],
+                                SizedBox(
+                                  height: 10,
                                 ),
-                                Column(
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
-                                    ),
-                                    textCustom(
-                                        name: "Saurav Kumar",
-                                        detail1: "CSE hit 2019",
-                                        detail2:
-                                            "ex:- onMobile Global Limited"),
-                                  ],
+                                Text(
+                                  "And Many More",
+                                  style: GoogleFonts.caveat(
+                                    color: Colors.black,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                                Column(
-                                  children: const [
-                                    Padding(
-                                      padding: EdgeInsets.only(top: 50),
-                                      child: avatarCustom2(),
-                                    ),
-                                    textCustom(
-                                        name: "Saurav Kumar",
-                                        detail1: "CSE hit 2019",
-                                        detail2:
-                                            "ex:- onMobile Global Limited"),
-                                  ],
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(435, 0, 435, 0),
+                                  color: Colors.redAccent,
+                                  width: double.maxFinite,
+                                  height: 3,
                                 ),
                               ],
                             ),
@@ -718,13 +785,16 @@ class _elseTwoState extends State<elseTwo> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     SizedBox(height: 80),
-                                    Text(
-                                      "FAQ's",
-                                      textAlign: TextAlign.center,
-                                      style: GoogleFonts.robotoMono(
-                                        color: Colors.black,
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold,
+                                    Container(
+                                      key: faqsitemKey5,
+                                      child: Text(
+                                        "FAQ's",
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.robotoMono(
+                                          color: Colors.black,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                     SizedBox(height: 5),
@@ -946,6 +1016,7 @@ class _elseTwoState extends State<elseTwo> {
                     Stack(
                       children: [
                         Container(
+                          key: contactusitemKey6,
                           width: double.maxFinite,
                           height: 400,
                           child: Image.asset('assets/images/footer.jpg',

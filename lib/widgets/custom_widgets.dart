@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AvatarCustom extends StatelessWidget {
-  const AvatarCustom({Key? key}) : super(key: key);
+  const AvatarCustom({Key? key, required this.images}) : super(key: key);
+  final String images;
 
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 130,
-      child: Image.asset('assets/images/saurav.png'),
+      child: Image.asset(images),
       backgroundColor: Theme.of(context).bottomAppBarColor,
     );
   }
@@ -63,44 +64,39 @@ class textCustom extends StatelessWidget {
 }
 
 class avatarCustom2 extends StatelessWidget {
-  const avatarCustom2({Key? key}) : super(key: key);
-
+  const avatarCustom2({Key? key, required this.images}) : super(key: key);
+  final String images;
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 110,
-      child: Image.asset('assets/images/saurav.png'),
+      child: Image.asset(images),
       backgroundColor: Theme.of(context).bottomAppBarColor,
     );
   }
 }
 
 class avatarCustom3 extends StatelessWidget {
-  const avatarCustom3({Key? key}) : super(key: key);
-
+  const avatarCustom3({Key? key, required this.images}) : super(key: key);
+  final String images;
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 90,
-      child: Image.asset('assets/images/saurav.png'),
+      child: Image.asset(images),
       backgroundColor: Theme.of(context).bottomAppBarColor,
     );
   }
 }
 
-class avatarCustom4 extends StatefulWidget {
-  const avatarCustom4({Key? key}) : super(key: key);
-
-  @override
-  _avatarCustom4State createState() => _avatarCustom4State();
-}
-
-class _avatarCustom4State extends State<avatarCustom4> {
+class avatarCustom4 extends StatelessWidget {
+  const avatarCustom4({Key? key, required this.images}) : super(key: key);
+  final String images;
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 75,
-      child: Image.asset('assets/images/saurav.png'),
+      child: Image.asset(images),
       backgroundColor: Theme.of(context).bottomAppBarColor,
     );
   }

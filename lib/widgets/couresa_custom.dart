@@ -20,11 +20,12 @@ class _csrouselCustomState extends State<csrouselCustom> {
   int _current = 0;
 
   final List<String> images = [
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
+    'assets/images/templatelong1.png',
+    'assets/images/templatelong2.png',
+    'assets/images/templatelong3.png',
+    'assets/images/templatelong4.png',
+    'assets/images/templatelong5.png',
+    'assets/images/templatelong6.png',
   ];
 
   List<Widget> generateImageTiles(screenSize) {
@@ -93,13 +94,13 @@ class _couresalCustom3State extends State<couresalCustom3> {
   int _current = 0;
 
   final List<String> images = [
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
+    'assets/images/templatelong1.png',
+    'assets/images/templatelong2.png',
+    'assets/images/templatelong3.png',
+    'assets/images/templatelong4.png',
+    'assets/images/templatelong5.png',
+    'assets/images/templatelong6.png',
   ];
-
   List<Widget> generateImageTiles(screenSize) {
     return images
         .map(
@@ -236,11 +237,12 @@ class _couresalCustom5State extends State<couresalCustom5> {
 
   int _current = 0;
   final List<String> images1 = [
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
-    'assets/images/template.png',
+    'assets/images/templatelong1.png',
+    'assets/images/templatelong2.png',
+    'assets/images/templatelong3.png',
+    'assets/images/templatelong4.png',
+    'assets/images/templatelong5.png',
+    'assets/images/templatelong6.png',
   ];
   List<Widget> generateImageTiles() {
     return images1

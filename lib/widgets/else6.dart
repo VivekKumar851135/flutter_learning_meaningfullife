@@ -7,6 +7,7 @@ import 'package:untitled/popupBody.dart';
 import 'package:untitled/widgets/couresal_custom2nd.dart';
 import 'package:untitled/widgets/custom_widgets.dart';
 import 'package:untitled/widgets/drawer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class elseCustom6 extends StatefulWidget {
   const elseCustom6({Key? key}) : super(key: key);
@@ -20,6 +21,52 @@ class _elseCustom6State extends State<elseCustom6> {
   final GlobalKey<ExpansionTileCardState> cardB = new GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardC = new GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardD = new GlobalKey();
+  final homeitemKey = GlobalKey();
+  final discoveritemKey2 = GlobalKey();
+  final aboutitemKey3 = GlobalKey();
+  final membersitemKey4 = GlobalKey();
+  final faqsitemKey5 = GlobalKey();
+  final contactusitemKey6 = GlobalKey();
+  bool nameValidate = false;
+  bool lastValidate = false;
+  bool msgValidate = false;
+  Future homeScrollToItem() async {
+    final context = homeitemKey.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future discoverScrollToItem2() async {
+    final context = discoveritemKey2.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future aboutScrollToItem3() async {
+    final context = aboutitemKey3.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future membersScrollToItem4() async {
+    final context = membersitemKey4.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future faqsScrollToItem5() async {
+    final context = faqsitemKey5.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  Future contactusScrollToItem6() async {
+    final context = contactusitemKey6.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController lastcontroller = TextEditingController();
+  TextEditingController msgcontroller = TextEditingController();
+  String name = "";
+  String last = "";
+  String msg = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,19 +83,226 @@ class _elseCustom6State extends State<elseCustom6> {
           ),
         ),
       ),
-      drawer: ExploreDrawer(),
+      drawer: Drawer(
+        child: Container(
+          color: Colors.tealAccent,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Welcome to".toUpperCase(),
+                  style: TextStyle(
+                      letterSpacing: 2,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "Learning MeaningFul Life",
+                  style: GoogleFonts.dancingScript(
+                    color: Colors.black54,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.maxFinite,
+                  height: 1,
+                  color: Colors.black.withOpacity(0.8),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    discoverScrollToItem2();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.explore,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "Discover",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    aboutScrollToItem3();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.book,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "About",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    membersScrollToItem4();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "Members",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    faqsScrollToItem5();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.question_answer,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "FAQ's",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                MaterialButton(
+                  height: 45,
+                  padding: EdgeInsets.only(left: 20),
+                  hoverColor: Colors.redAccent,
+                  onPressed: () {
+                    contactusScrollToItem6();
+                    Navigator.pop(context);
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.contact_mail,
+                        color: Colors.black,
+                        size: 25,
+                      ),
+                      SizedBox(
+                        width: 17,
+                      ),
+                      Text(
+                        "Contact us",
+                        style: TextStyle(
+                            letterSpacing: 2,
+                            fontSize: 17,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Stack(
           children: [
-            Container(
-              width: double.maxFinite,
-              height: 620,
-              child: Image.asset(
-                'assets/images/background4.jpg',
-                fit: BoxFit.fill,
+            Stack(children: [
+              Container(
+                width: double.maxFinite,
+                height: 620,
+                child: Image.asset(
+                  'assets/images/background3.jpg',
+                  fit: BoxFit.fill,
+                ),
               ),
-            ),
+              Container(
+                height: 620,
+                width: double.maxFinite,
+                color: Colors.black.withOpacity(0.5),
+              ),
+            ]),
             Column(
               children: [
                 couresalCustom3(),
@@ -57,6 +311,8 @@ class _elseCustom6State extends State<elseCustom6> {
                     Stack(
                       children: [
                         Container(
+                          key: discoveritemKey2,
+
                           ///height: 700,
                           width: double.maxFinite,
                           child: Image.asset(
@@ -106,7 +362,7 @@ class _elseCustom6State extends State<elseCustom6> {
                         Text(
                           "upcoming Events",
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.caveat(
                             color: Colors.black,
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -134,7 +390,7 @@ class _elseCustom6State extends State<elseCustom6> {
                         Text(
                           "Recents Events",
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.robotoMono(
+                          style: GoogleFonts.caveat(
                             color: Colors.black,
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -162,13 +418,16 @@ class _elseCustom6State extends State<elseCustom6> {
                             // SizedBox(
                             //   height: 20,
                             // ),
-                            Text(
-                              "About",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.robotoMono(
-                                color: Colors.black,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
+                            Container(
+                              key: aboutitemKey3,
+                              child: Text(
+                                "About",
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.caveat(
+                                  color: Colors.black,
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                             SizedBox(height: 5),
@@ -201,6 +460,8 @@ class _elseCustom6State extends State<elseCustom6> {
                         Stack(
                           children: [
                             Container(
+                              key: membersitemKey4,
+
                               ///height: 700,
                               width: double.maxFinite,
                               height: 1000,
@@ -300,10 +561,11 @@ class _elseCustom6State extends State<elseCustom6> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                              child: avatarCustom4(
+                                  images: 'assets/images/shubham.png'),
                             ),
                             textCustom4(
-                                name: "Saurav Kumar",
+                                name: "Shubham Kumar",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -312,10 +574,84 @@ class _elseCustom6State extends State<elseCustom6> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                              child: avatarCustom4(
+                                images: "assets/images/niraj.png",
+                              ),
                             ),
                             textCustom4(
-                                name: "Saurav Kumar",
+                                name: "Niraj Kumar",
+                                detail1: "ECE HIT, 2019",
+                                detail2:
+                                    "Indian audit & accounts department,patna"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: avatarCustom4(
+                                images: "assets/images/abhimanyu.png",
+                              ),
+                            ),
+                            textCustom4(
+                                name: "Abhimanyu Kumar",
+                                detail1: "ME HIT, 2018",
+                                detail2: "TCS (Software engineer )"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: avatarCustom4(
+                                images: "assets/images/akash.png",
+                              ),
+                            ),
+                            textCustom4(
+                                name: "Akash Kumar",
+                                detail1: "HIT, 2019 passout",
+                                detail2:
+                                    "INFOSYS ( Software engineer ) EX:- TEST ENGINEER"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: avatarCustom4(
+                                images: "assets/images/arvind.png",
+                              ),
+                            ),
+                            textCustom4(
+                                name: "Arvind Gupta",
+                                detail1: "HIT, 2019 passout",
+                                detail2: "AMDOCS ( Software Developer)"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: avatarCustom4(
+                                images: "assets/images/ashish.png",
+                              ),
+                            ),
+                            textCustom4(
+                                name: "Ashish Goyal",
+                                detail1: "CSE HIT, 2017",
+                                detail2: "M.Tech.(CSE) IITB Ex:- Infosys"),
+                          ],
+                        ),
+                        Column(
+                          children: const [
+                            Padding(
+                              padding: EdgeInsets.only(top: 50),
+                              child: avatarCustom4(
+                                images: "assets/images/avinash.png",
+                              ),
+                            ),
+                            textCustom4(
+                                name: "Abinash Kumar Shaw",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -324,10 +660,12 @@ class _elseCustom6State extends State<elseCustom6> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                              child: avatarCustom4(
+                                images: "assets/images/chandan.png",
+                              ),
                             ),
                             textCustom4(
-                                name: "Saurav Kumar",
+                                name: "Chandan Kumar",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -336,10 +674,12 @@ class _elseCustom6State extends State<elseCustom6> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                              child: avatarCustom4(
+                                images: "assets/images/purosottam.png",
+                              ),
                             ),
                             textCustom4(
-                                name: "Saurav Kumar",
+                                name: "Purusottam Anand",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -348,10 +688,12 @@ class _elseCustom6State extends State<elseCustom6> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                              child: avatarCustom4(
+                                images: "assets/images/rohit.png",
+                              ),
                             ),
                             textCustom4(
-                                name: "Saurav Kumar",
+                                name: "Sumit Kamal",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
@@ -360,84 +702,56 @@ class _elseCustom6State extends State<elseCustom6> {
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                              child: avatarCustom4(
+                                images: "assets/images/rohit.png",
+                              ),
                             ),
                             textCustom4(
                                 name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
+                                detail1: "CHE hit 2014",
+                                detail2:
+                                    "IIT Bombay (PhD student) & UG: Silver Medalist"),
                           ],
                         ),
                         Column(
                           children: const [
                             Padding(
                               padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                              child: avatarCustom4(
+                                images: "assets/images/rohit.png",
+                              ),
                             ),
-                            textCustom4(
-                                name: "Saurav Kumar",
+                            textCustom(
+                                name: "Rohit Kumar",
                                 detail1: "CSE hit 2019",
                                 detail2: "ex:- onMobile Global Limited"),
                           ],
                         ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
-                            ),
-                            textCustom4(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
+                        SizedBox(
+                          height: 25,
                         ),
                         Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                          children: [
+                            SizedBox(
+                              height: 10,
                             ),
-                            textCustom4(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                            Text(
+                              "And Many More",
+                              style: GoogleFonts.caveat(
+                                color: Colors.black,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                            textCustom4(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                            SizedBox(
+                              height: 10,
                             ),
-                            textCustom4(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
-                          ],
-                        ),
-                        Column(
-                          children: const [
-                            Padding(
-                              padding: EdgeInsets.only(top: 50),
-                              child: avatarCustom4(),
+                            Container(
+                              margin: EdgeInsets.fromLTRB(150, 0, 150, 0),
+                              color: Colors.redAccent,
+                              width: double.maxFinite,
+                              height: 3,
                             ),
-                            textCustom4(
-                                name: "Saurav Kumar",
-                                detail1: "CSE hit 2019",
-                                detail2: "ex:- onMobile Global Limited"),
                           ],
                         ),
                         Column(
@@ -447,13 +761,16 @@ class _elseCustom6State extends State<elseCustom6> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(height: 80),
-                                Text(
-                                  "FAQ's",
-                                  textAlign: TextAlign.center,
-                                  style: GoogleFonts.robotoMono(
-                                    color: Colors.black,
-                                    fontSize: 25,
-                                    fontWeight: FontWeight.bold,
+                                Container(
+                                  key: faqsitemKey5,
+                                  child: Text(
+                                    "FAQ's",
+                                    textAlign: TextAlign.center,
+                                    style: GoogleFonts.robotoMono(
+                                      color: Colors.black,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(height: 5),
@@ -502,8 +819,7 @@ class _elseCustom6State extends State<elseCustom6> {
                                         vertical: 8.0,
                                       ),
                                       child: Text(
-                                        "FlutterDevs specializes in creating cost-effective and efficient applications with our perfectly crafted,"
-                                        " creative and leading-edge flutter app development solutions for customers all around the globe.",
+                                        "LML stands for Learning Meaningful Life.",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500),
@@ -546,8 +862,7 @@ class _elseCustom6State extends State<elseCustom6> {
                                         vertical: 8.0,
                                       ),
                                       child: Text(
-                                        "FlutterDevs specializes in creating cost-effective and efficient applications with our perfectly crafted,"
-                                        " creative and leading-edge flutter app development solutions for customers all around the globe.",
+                                        "LML is an e-community of HIT Haldia Alumni. So it is runned by world-wide  alumni community of HIT Haldia who have common purpose in learning meaningful life.",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500),
@@ -590,8 +905,7 @@ class _elseCustom6State extends State<elseCustom6> {
                                         vertical: 8.0,
                                       ),
                                       child: Text(
-                                        "FlutterDevs specializes in creating cost-effective and efficient applications with our perfectly crafted,"
-                                        " creative and leading-edge flutter app development solutions for customers all around the globe.",
+                                        "Certainly not. This is e-community of your Alumni who live by what they teach. The unique thing is that you continue to stay on with us till you pass out, after you pass out & forever. Even more uniqueness is in the purpose – our purpose is to help you get real direction along with the speed of technology you learn, so that you start learning meaningful life based on eternal principles of Bhagavad Gita.",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500),
@@ -634,8 +948,7 @@ class _elseCustom6State extends State<elseCustom6> {
                                         vertical: 8.0,
                                       ),
                                       child: Text(
-                                        "FlutterDevs specializes in creating cost-effective and efficient applications with our perfectly crafted,"
-                                        " creative and leading-edge flutter app development solutions for customers all around the globe.",
+                                        "Yes. But, not in terms of money. That we, your Alumni, will bare. You need to qualify with your eagerness to really want to be benefitted. Nothing comes free.",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500),
@@ -678,6 +991,7 @@ class _elseCustom6State extends State<elseCustom6> {
                 Stack(
                   children: [
                     Container(
+                      key: contactusitemKey6,
                       width: double.maxFinite,
                       height: 900,
                       child: Image.asset('assets/images/footer.jpg',
@@ -877,9 +1191,16 @@ class _elseCustom6State extends State<elseCustom6> {
                                           width: 1.0,
                                         ),
                                       ),
-                                      child: const TextField(
+                                      child: TextField(
+                                        controller: namecontroller,
+                                        onChanged: (text) {
+                                          name = text;
+                                        },
                                         textAlign: TextAlign.center,
                                         decoration: InputDecoration(
+                                          errorText: nameValidate
+                                              ? 'Please enter a name'
+                                              : null,
                                           labelStyle: TextStyle(
                                               fontSize: 10,
                                               fontWeight: FontWeight.w600,
@@ -908,8 +1229,15 @@ class _elseCustom6State extends State<elseCustom6> {
                                       ),
                                     ),
                                     child: TextField(
+                                      controller: lastcontroller,
+                                      onChanged: (text) {
+                                        last = text;
+                                      },
                                       textAlign: TextAlign.center,
                                       decoration: InputDecoration(
+                                        errorText: lastValidate
+                                            ? 'Please enter a last name'
+                                            : null,
                                         hintText: 'Last name',
                                         labelStyle: TextStyle(
                                             fontSize: 10,
@@ -923,47 +1251,51 @@ class _elseCustom6State extends State<elseCustom6> {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Email",
-                                      style: TextStyle(
-                                          fontSize: 20,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Container(
-                                      height: 40.0,
-                                      width: 200.0,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        shape: BoxShape.rectangle,
-                                        border: Border.all(
-                                          color: Colors.redAccent,
-                                          width: 1.0,
-                                        ),
-                                      ),
-                                      child: const TextField(
-                                        textAlign: TextAlign.center,
-                                        decoration: InputDecoration(
-                                          labelStyle: TextStyle(
-                                              fontSize: 10,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colors.black),
-                                          hintText: 'Email id',
-                                          border: InputBorder.none,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
+                                // Column(
+                                //   crossAxisAlignment: CrossAxisAlignment.center,
+                                //   children: [
+                                //     Text(
+                                //       "Email",
+                                //       style: TextStyle(
+                                //           fontSize: 20,
+                                //           color: Colors.white,
+                                //           fontWeight: FontWeight.w600),
+                                //     ),
+                                //     SizedBox(
+                                //       height: 10,
+                                //     ),
+                                //     Container(
+                                //       height: 40.0,
+                                //       width: 200.0,
+                                //       decoration: BoxDecoration(
+                                //         color: Colors.white,
+                                //         shape: BoxShape.rectangle,
+                                //         border: Border.all(
+                                //           color: Colors.redAccent,
+                                //           width: 1.0,
+                                //         ),
+                                //       ),
+                                //       child: TextField(
+                                //          controller: lastcontroller,
+                                //                       onChanged: (text) {
+                                //                         last = text;
+                                //                       },
+                                //         textAlign: TextAlign.center,
+                                //         decoration: InputDecoration(
+                                //           labelStyle: TextStyle(
+                                //               fontSize: 10,
+                                //               fontWeight: FontWeight.w600,
+                                //               color: Colors.black),
+                                //           hintText: 'Email id',
+                                //           border: InputBorder.none,
+                                //         ),
+                                //       ),
+                                //     ),
+                                //   ],
+                                // ),
+                                // SizedBox(
+                                //   height: 10,
+                                // ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -989,11 +1321,18 @@ class _elseCustom6State extends State<elseCustom6> {
                                         ),
                                       ),
                                       child: TextField(
+                                        controller: msgcontroller,
+                                        onChanged: (text) {
+                                          msg = text;
+                                        },
                                         keyboardType: TextInputType.multiline,
                                         minLines: 1,
                                         maxLines: 30,
                                         textAlign: TextAlign.center,
                                         decoration: InputDecoration(
+                                            errorText: msgValidate
+                                                ? 'Please enter a message'
+                                                : null,
                                             filled: true,
                                             hintStyle: TextStyle(
                                                 color: Colors.grey[800]),
@@ -1002,6 +1341,36 @@ class _elseCustom6State extends State<elseCustom6> {
                                       ),
                                     ),
                                   ],
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  height: 40,
+                                  width: 100,
+                                  color: Colors.red,
+                                  child: OutlinedButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        validatenameTextField(name);
+                                        validatelastTextField(last);
+                                        validatemsgTextField(msg);
+                                        if (nameValidate == false &&
+                                            lastValidate == false &&
+                                            msgValidate == false) {
+                                          launchURL(name, last, msg);
+                                        }
+                                      });
+                                    },
+                                    child: Text(
+                                      "Submit",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -1016,45 +1385,98 @@ class _elseCustom6State extends State<elseCustom6> {
           ],
         ),
       ),
-      floatingActionButton: PopupItemLauncher(
-        tag: 'test',
-        child: Container(
-          width: 70,
-          height: 70,
-          child: Center(
-            child: FaIcon(
-              FontAwesomeIcons.whatsapp,
-              color: Colors.white,
-              size: 50,
-            ),
-          ),
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.blueGrey.shade400.withOpacity(0.8),
-                offset: Offset(-3.0, -3.0),
-                blurRadius: 8.0,
-              ),
-              BoxShadow(
-                color: Colors.blueGrey.withOpacity(0.1),
-                offset: Offset(6.0, 6.0),
-                blurRadius: 8.0,
-              ),
-            ],
-            color: Colors.green,
-            shape: BoxShape.circle,
-          ),
-        ),
-        popUp: PopUpItem(
-          padding: EdgeInsets.all(8),
-          color: Colors.white,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
-          elevation: 2,
-          tag: 'test',
-          child: PopUpItemBody(),
-        ),
-      ),
+      // floatingActionButton: PopupItemLauncher(
+      //   tag: 'test',
+      //   child: Container(
+      //     width: 70,
+      //     height: 70,
+      //     child: Center(
+      //       child: FaIcon(
+      //         FontAwesomeIcons.whatsapp,
+      //         color: Colors.white,
+      //         size: 50,
+      //       ),
+      //     ),
+      //     decoration: BoxDecoration(
+      //       boxShadow: [
+      //         BoxShadow(
+      //           color: Colors.blueGrey.shade400.withOpacity(0.8),
+      //           offset: Offset(-3.0, -3.0),
+      //           blurRadius: 8.0,
+      //         ),
+      //         BoxShadow(
+      //           color: Colors.blueGrey.withOpacity(0.1),
+      //           offset: Offset(6.0, 6.0),
+      //           blurRadius: 8.0,
+      //         ),
+      //       ],
+      //       color: Colors.green,
+      //       shape: BoxShape.circle,
+      //     ),
+      //   ),
+      //   popUp: PopUpItem(
+      //     padding: EdgeInsets.all(8),
+      //     color: Colors.white,
+      //     shape:
+      //         RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+      //     elevation: 2,
+      //     tag: 'test',
+      //     child: PopUpItemBody(),
+      //   ),
+      // ),
     );
+  }
+
+  launchURL(String name, String last, String msg) async {
+    String toMailId = "vk646815@gmail.com";
+    String sub = "I have some query";
+    String body = msg + "   Name:- " + name + " " + last;
+
+    var url = 'mailto:$toMailId?subject=$sub&body=$body';
+
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  bool validatenameTextField(String userInput) {
+    if (userInput.isEmpty) {
+      setState(() {
+        nameValidate = true;
+      });
+      return false;
+    }
+    setState(() {
+      nameValidate = false;
+    });
+    return true;
+  }
+
+  bool validatelastTextField(String userInput) {
+    if (userInput.isEmpty) {
+      setState(() {
+        lastValidate = true;
+      });
+      return false;
+    }
+    setState(() {
+      lastValidate = false;
+    });
+    return true;
+  }
+
+  bool validatemsgTextField(String userInput) {
+    if (userInput.isEmpty) {
+      setState(() {
+        msgValidate = true;
+      });
+      return false;
+    }
+    setState(() {
+      msgValidate = false;
+    });
+    return true;
   }
 }
