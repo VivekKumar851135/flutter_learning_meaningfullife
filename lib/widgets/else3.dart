@@ -1,9 +1,12 @@
+import 'package:bubble/bubble.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:popup_card/popup_card.dart';
 
 import 'package:untitled/widgets/alumni.dart';
 import 'package:untitled/widgets/appBar.dart';
@@ -11,6 +14,7 @@ import 'package:untitled/widgets/couresa_custom.dart';
 import 'package:untitled/widgets/custom_widgets.dart';
 import 'package:untitled/widgets/drawer.dart';
 import 'package:untitled/widgets/fotter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class elseCustom3 extends StatefulWidget {
   const elseCustom3({Key? key}) : super(key: key);
@@ -40,6 +44,13 @@ class _elseCustom3State extends State<elseCustom3> {
   final membersitemKey4 = GlobalKey();
   final faqsitemKey5 = GlobalKey();
   final contactusitemKey6 = GlobalKey();
+  final morequestionKey = GlobalKey();
+
+  Future morequestionScrollToItem() async {
+    final context = morequestionKey.currentContext!;
+    await Scrollable.ensureVisible(context);
+  }
+
   Future homeScrollToItem() async {
     final context = homeitemKey.currentContext!;
     await Scrollable.ensureVisible(context);
@@ -70,6 +81,15 @@ class _elseCustom3State extends State<elseCustom3> {
     await Scrollable.ensureVisible(context);
   }
 
+  String name = "";
+  String last = "";
+  String msg = "";
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController lastcontroller = TextEditingController();
+  TextEditingController msgcontroller = TextEditingController();
+  bool nameValidate = false;
+  bool lastValidate = false;
+  bool msgValidate = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,6 +183,7 @@ class _elseCustom3State extends State<elseCustom3> {
                   hoverColor: Colors.redAccent,
                   onPressed: () {
                     aboutScrollToItem3();
+                    Navigator.pop(context);
                   },
                   child: Row(
                     children: [
@@ -983,7 +1004,9 @@ class _elseCustom3State extends State<elseCustom3> {
                                     width: 250,
                                     height: 50,
                                     child: RawMaterialButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        morequestionScrollToItem();
+                                      },
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(30)),
@@ -1211,6 +1234,7 @@ class _elseCustom3State extends State<elseCustom3> {
                                             height: 10,
                                           ),
                                           Container(
+                                            key: morequestionKey,
                                             height: 40.0,
                                             width: 200.0,
                                             decoration: BoxDecoration(
@@ -1221,9 +1245,16 @@ class _elseCustom3State extends State<elseCustom3> {
                                                 width: 1.0,
                                               ),
                                             ),
-                                            child: const TextField(
+                                            child: TextField(
+                                              controller: namecontroller,
+                                              onChanged: (text) {
+                                                name = text;
+                                              },
                                               textAlign: TextAlign.center,
                                               decoration: InputDecoration(
+                                                errorText: nameValidate
+                                                    ? 'Please enter a name'
+                                                    : null,
                                                 labelStyle: TextStyle(
                                                     fontSize: 10,
                                                     fontWeight: FontWeight.w600,
@@ -1252,8 +1283,15 @@ class _elseCustom3State extends State<elseCustom3> {
                                             ),
                                           ),
                                           child: TextField(
+                                            controller: lastcontroller,
+                                            onChanged: (text) {
+                                              last = text;
+                                            },
                                             textAlign: TextAlign.center,
                                             decoration: InputDecoration(
+                                              errorText: lastValidate
+                                                  ? 'Please enter a last name'
+                                                  : null,
                                               hintText: 'Last name',
                                               labelStyle: TextStyle(
                                                   fontSize: 10,
@@ -1263,48 +1301,6 @@ class _elseCustom3State extends State<elseCustom3> {
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Email",
-                                            style: TextStyle(
-                                                fontSize: 20,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          Container(
-                                            height: 40.0,
-                                            width: 200.0,
-                                            decoration: BoxDecoration(
-                                              color: Colors.white,
-                                              shape: BoxShape.rectangle,
-                                              border: Border.all(
-                                                color: Colors.redAccent,
-                                                width: 1.0,
-                                              ),
-                                            ),
-                                            child: const TextField(
-                                              textAlign: TextAlign.center,
-                                              decoration: InputDecoration(
-                                                labelStyle: TextStyle(
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Colors.black),
-                                                hintText: 'Email id',
-                                                border: InputBorder.none,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
                                       ),
                                       SizedBox(
                                         height: 10,
@@ -1335,12 +1331,19 @@ class _elseCustom3State extends State<elseCustom3> {
                                               ),
                                             ),
                                             child: TextField(
+                                              controller: msgcontroller,
+                                              onChanged: (text) {
+                                                msg = text;
+                                              },
                                               keyboardType:
                                                   TextInputType.multiline,
                                               minLines: 1,
                                               maxLines: 30,
                                               textAlign: TextAlign.center,
                                               decoration: InputDecoration(
+                                                  errorText: msgValidate
+                                                      ? 'Please enter a message'
+                                                      : null,
                                                   filled: true,
                                                   hintStyle: TextStyle(
                                                       color: Colors.grey[800]),
@@ -1349,6 +1352,36 @@ class _elseCustom3State extends State<elseCustom3> {
                                             ),
                                           ),
                                         ],
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Container(
+                                        height: 40,
+                                        width: 100,
+                                        color: Colors.red,
+                                        child: OutlinedButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              validatenameTextField(name);
+                                              validatelastTextField(last);
+                                              validatemsgTextField(msg);
+                                              if (nameValidate == false &&
+                                                  lastValidate == false &&
+                                                  msgValidate == false) {
+                                                launchURL(name, last, msg);
+                                              }
+                                            });
+                                          },
+                                          child: Text(
+                                            "Submit",
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w500,
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -1366,6 +1399,221 @@ class _elseCustom3State extends State<elseCustom3> {
           ],
         ),
       ),
+      floatingActionButton: PopupItemLauncher(
+        tag: 'test4',
+        child: Container(
+          width: 70,
+          height: 70,
+          child: Center(
+            child: FaIcon(
+              FontAwesomeIcons.whatsapp,
+              color: Colors.white,
+              size: 50,
+            ),
+          ),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.blueGrey.shade400.withOpacity(0.8),
+                offset: Offset(-3.0, -3.0),
+                blurRadius: 8.0,
+              ),
+              BoxShadow(
+                color: Colors.blueGrey.withOpacity(0.1),
+                offset: Offset(6.0, 6.0),
+                blurRadius: 8.0,
+              ),
+            ],
+            color: Colors.green,
+            shape: BoxShape.circle,
+          ),
+        ),
+        popUp: PopUpItem(
+          padding: EdgeInsets.all(8),
+          color: Colors.white,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+          elevation: 2,
+          tag: 'test4',
+          child: Container(
+            height: 300,
+            width: 450,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+              color: Colors.white,
+            ),
+            child: ListView(
+              children: [
+                Container(
+                  height: 70,
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.greenAccent.shade700,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "HIT haldia - Learning Meaningfull Life",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Bubble(
+                  style: BubbleStyle(
+                    nip: BubbleNip.leftCenter,
+                    color: Colors.white,
+                    borderColor: Colors.black,
+                    borderWidth: 1,
+                    elevation: 4,
+                    margin: BubbleEdges.only(top: 5, right: 0),
+                    alignment: Alignment.topLeft,
+                  ),
+                  child: const Text(
+                    'Hi',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Bubble(
+                  style: BubbleStyle(
+                    nip: BubbleNip.leftCenter,
+                    color: Colors.white,
+                    borderColor: Colors.black,
+                    borderWidth: 1,
+                    elevation: 4,
+                    margin: BubbleEdges.only(top: 8, right: 0),
+                    alignment: Alignment.topLeft,
+                  ),
+                  child: const Text(
+                    'Welcome to Learning Meaningfull Life',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+                Bubble(
+                  style: BubbleStyle(
+                    nip: BubbleNip.leftCenter,
+                    color: Colors.white,
+                    borderColor: Colors.black,
+                    borderWidth: 1,
+                    elevation: 4,
+                    margin: BubbleEdges.only(top: 8, right: 0),
+                    alignment: Alignment.topLeft,
+                  ),
+                  child: const Text(
+                    'How we can serve you?',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 17,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  child: AnimatedButton(
+                    selectedBackgroundColor: Colors.white,
+                    animationDuration: const Duration(milliseconds: 200),
+                    backgroundColor: Colors.greenAccent.shade700,
+                    //  borderColor: Colors.greenAccent,
+                    borderRadius: 30,
+                    height: 50,
+                    borderWidth: 1,
+                    onPress: () {
+                      openwhatsapp();
+                    },
+                    isReverse: true,
+
+                    // width: 250,
+                    text: 'Open chat',
+                    selectedTextColor: Colors.green,
+                    transitionType: TransitionType.LEFT_TO_RIGHT,
+                    textStyle: TextStyle(
+                        fontSize: 20,
+                        letterSpacing: 2,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
     );
+  }
+
+  launchURL(String name, String last, String msg) async {
+    String toMailId = "vk646815@gmail.com";
+    String sub = "I have some query";
+    String body = msg + "   Name:- " + name + " " + last;
+
+    var url = 'mailto:$toMailId?subject=$sub&body=$body';
+
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  bool validatenameTextField(String userInput) {
+    if (userInput.isEmpty) {
+      setState(() {
+        nameValidate = true;
+      });
+      return false;
+    }
+    setState(() {
+      nameValidate = false;
+    });
+    return true;
+  }
+
+  bool validatelastTextField(String userInput) {
+    if (userInput.isEmpty) {
+      setState(() {
+        lastValidate = true;
+      });
+      return false;
+    }
+    setState(() {
+      lastValidate = false;
+    });
+    return true;
+  }
+
+  bool validatemsgTextField(String userInput) {
+    if (userInput.isEmpty) {
+      setState(() {
+        msgValidate = true;
+      });
+      return false;
+    }
+    setState(() {
+      msgValidate = false;
+    });
+    return true;
+  }
+
+  openwhatsapp() async {
+    var whatsapp = "+917479811481";
+    var whatsappURlAndroid =
+        "https://web.whatsapp.com/send?phone=$whatsapp=${Uri.parse("hello Learning meaningfull life")}";
+    if (await canLaunch(whatsappURlAndroid)) {
+      await launch(whatsappURlAndroid);
+    }
   }
 }

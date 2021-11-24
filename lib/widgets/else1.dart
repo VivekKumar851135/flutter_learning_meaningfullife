@@ -2,47 +2,37 @@ import 'package:bubble/bubble.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:popup_card/popup_card.dart';
-
-import 'package:untitled/widgets/alumni.dart';
-import 'package:untitled/widgets/appBar.dart';
 import 'package:untitled/widgets/couresa_custom.dart';
 import 'package:untitled/widgets/custom_widgets.dart';
-import 'package:untitled/widgets/fotter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class elseTwo extends StatefulWidget {
-  const elseTwo({Key? key}) : super(key: key);
+class else1 extends StatefulWidget {
+  const else1({Key? key}) : super(key: key);
 
   @override
-  _elseTwoState createState() => _elseTwoState();
+  _else1State createState() => _else1State();
 }
 
-class _elseTwoState extends State<elseTwo> {
+class _else1State extends State<else1> {
   final GlobalKey<ExpansionTileCardState> cardA = new GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardB = new GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardC = new GlobalKey();
   final GlobalKey<ExpansionTileCardState> cardD = new GlobalKey();
-  final List _isHovering = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
   final homeitemKey = GlobalKey();
   final discoveritemKey2 = GlobalKey();
   final aboutitemKey3 = GlobalKey();
   final membersitemKey4 = GlobalKey();
   final faqsitemKey5 = GlobalKey();
   final contactusitemKey6 = GlobalKey();
+  bool nameValidate = false;
+  bool lastValidate = false;
+  bool msgValidate = false;
+  String name = "";
+  String last = "";
+  String msg = "";
   final morequestionKey = GlobalKey();
 
   Future morequestionScrollToItem() async {
@@ -80,15 +70,20 @@ class _elseTwoState extends State<elseTwo> {
     await Scrollable.ensureVisible(context);
   }
 
-  String name = "";
-  String last = "";
-  String msg = "";
+  final List _isHovering = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ];
   TextEditingController namecontroller = TextEditingController();
   TextEditingController lastcontroller = TextEditingController();
   TextEditingController msgcontroller = TextEditingController();
-  bool nameValidate = false;
-  bool lastValidate = false;
-  bool msgValidate = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,6 +92,7 @@ class _elseTwoState extends State<elseTwo> {
           children: [
             Stack(children: [
               Container(
+                key: homeitemKey,
                 width: double.maxFinite,
                 child: Image.asset(
                   'assets/images/background3.jpg',
@@ -116,29 +112,29 @@ class _elseTwoState extends State<elseTwo> {
                     children: [
                       Container(
                         width: double.maxFinite,
-                        height: 80,
+                        height: 100,
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             // mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 25,
                               ),
                               Text(
                                 "Learning MeaningFul Life",
                                 style: GoogleFonts.dancingScript(
                                   color: Colors.white,
-                                  fontSize: 30,
+                                  fontSize: 35,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              SizedBox(
-                                width: 150,
+                              const SizedBox(
+                                width: 155,
                               ),
                               Row(
                                 children: [
-                                  SizedBox(width: 15),
+                                  SizedBox(width: 30),
                                   InkWell(
                                     onHover: (value) {
                                       setState(() {
@@ -157,7 +153,7 @@ class _elseTwoState extends State<elseTwo> {
                                           'Discover',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 13,
+                                            fontSize: 16,
                                             color: _isHovering[1]
                                                 ? Colors.redAccent
                                                 : Colors.white,
@@ -178,7 +174,7 @@ class _elseTwoState extends State<elseTwo> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(width: 20),
+                                  SizedBox(width: 30),
                                   InkWell(
                                     onHover: (value) {
                                       setState(() {
@@ -197,7 +193,7 @@ class _elseTwoState extends State<elseTwo> {
                                           'About',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 13,
+                                            fontSize: 16,
                                             color: _isHovering[2]
                                                 ? Colors.redAccent
                                                 : Colors.white,
@@ -218,7 +214,7 @@ class _elseTwoState extends State<elseTwo> {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(width: 20),
+                                  const SizedBox(width: 30),
                                   InkWell(
                                     onHover: (value) {
                                       setState(() {
@@ -237,7 +233,7 @@ class _elseTwoState extends State<elseTwo> {
                                           'Members',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 13,
+                                            fontSize: 16,
                                             color: _isHovering[3]
                                                 ? Colors.redAccent
                                                 : Colors.white,
@@ -258,7 +254,7 @@ class _elseTwoState extends State<elseTwo> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(width: 20),
+                                  SizedBox(width: 30),
                                   InkWell(
                                     onHover: (value) {
                                       setState(() {
@@ -277,7 +273,7 @@ class _elseTwoState extends State<elseTwo> {
                                           'FAQs',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 13,
+                                            fontSize: 16,
                                             color: _isHovering[4]
                                                 ? Colors.redAccent
                                                 : Colors.white,
@@ -298,7 +294,7 @@ class _elseTwoState extends State<elseTwo> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(width: 20),
+                                  SizedBox(width: 30),
                                   InkWell(
                                     onHover: (value) {
                                       setState(() {
@@ -317,7 +313,7 @@ class _elseTwoState extends State<elseTwo> {
                                           'Contact us',
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 13,
+                                            fontSize: 16,
                                             color: _isHovering[5]
                                                 ? Colors.redAccent
                                                 : Colors.white,
@@ -340,18 +336,36 @@ class _elseTwoState extends State<elseTwo> {
                                   ),
                                 ],
                               ),
+                              const SizedBox(
+                                width: 155,
+                              ),
+                              Container(
+                                width: 150,
+                                child: RawMaterialButton(
+                                  onPressed: () {},
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30)),
+                                  child: Text(
+                                    "Register Here",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  fillColor: Colors.redAccent,
+                                  hoverColor: Colors.redAccent[100],
+                                ),
+                              ),
                             ],
                           ),
                         ),
                       ),
-                      couresalCustom3(),
+                      csrouselCustom(),
                       Stack(
                         children: [
                           Column(
                             children: [
                               Container(
-                                key: discoveritemKey2,
-
                                 ///height: 700,
                                 width: double.maxFinite,
                                 child: Image.asset(
@@ -378,6 +392,7 @@ class _elseTwoState extends State<elseTwo> {
                           Column(
                             children: [
                               Container(
+                                key: discoveritemKey2,
                                 height: 900,
                                 //900,
                                 width: double.maxFinite,
@@ -386,28 +401,6 @@ class _elseTwoState extends State<elseTwo> {
                                 ),
                                 child: Column(
                                   children: [
-                                    SizedBox(
-                                      height: 40,
-                                    ),
-                                    Container(
-                                      width: 200,
-                                      height: 50,
-                                      child: RawMaterialButton(
-                                        onPressed: () {},
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(30)),
-                                        child: Text(
-                                          "Register Here",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 17,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                        fillColor: Colors.redAccent,
-                                        hoverColor: Colors.redAccent[100],
-                                      ),
-                                    ),
                                     SizedBox(
                                       height: 40,
                                     ),
@@ -423,7 +416,7 @@ class _elseTwoState extends State<elseTwo> {
                                     SizedBox(height: 10),
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                          385, 0, 380, 0),
+                                          620, 0, 620, 0),
                                       child: Container(
                                         color: Colors.redAccent,
                                         width: double.maxFinite,
@@ -433,8 +426,8 @@ class _elseTwoState extends State<elseTwo> {
                                     SizedBox(height: 35),
                                     Container(
                                       padding: EdgeInsets.all(10),
-                                      height: 500,
-                                      width: 950,
+                                      height: 650,
+                                      width: 1100,
                                       child: Image.asset(
                                           'assets/images/study.jpg',
                                           fit: BoxFit.fill),
@@ -462,7 +455,7 @@ class _elseTwoState extends State<elseTwo> {
                                     SizedBox(height: 10),
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                          390, 0, 385, 0),
+                                          620, 0, 620, 0),
                                       child: Container(
                                         color: Colors.redAccent,
                                         width: double.maxFinite,
@@ -472,8 +465,8 @@ class _elseTwoState extends State<elseTwo> {
                                     SizedBox(height: 30),
                                     Container(
                                       padding: EdgeInsets.all(10),
-                                      height: 500,
-                                      width: 950,
+                                      height: 650,
+                                      width: 1100,
                                       child: Image.asset(
                                           'assets/images/management.jpg',
                                           fit: BoxFit.fill),
@@ -484,7 +477,6 @@ class _elseTwoState extends State<elseTwo> {
                               Container(
                                 key: aboutitemKey3,
                                 height: 600,
-
                                 //900,
                                 width: double.maxFinite,
                                 decoration: BoxDecoration(
@@ -504,10 +496,10 @@ class _elseTwoState extends State<elseTwo> {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    SizedBox(height: 5),
+                                    SizedBox(height: 10),
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(
-                                          420, 0, 420, 0),
+                                          687, 0, 687, 0),
                                       child: Container(
                                         color: Colors.redAccent,
                                         width: double.maxFinite,
@@ -517,8 +509,8 @@ class _elseTwoState extends State<elseTwo> {
                                     SizedBox(height: 30),
                                     Container(
                                       padding: EdgeInsets.all(10),
-                                      height: 400,
-                                      width: 750,
+                                      height: 450,
+                                      width: 800,
                                       child: Image.asset(
                                           'assets/images/about.png',
                                           fit: BoxFit.fill),
@@ -537,7 +529,7 @@ class _elseTwoState extends State<elseTwo> {
 
                             ///height: 700,
                             width: double.maxFinite,
-                            height: 2200,
+                            height: 2400,
                             decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage("assets/images/info.jpg"),
@@ -548,7 +540,7 @@ class _elseTwoState extends State<elseTwo> {
                           Container(
                             ///height: 700,
                             width: double.maxFinite,
-                            height: 2200,
+                            height: 2400,
                             color: Colors.white.withOpacity(0.5),
                           ),
                           Column(
@@ -566,7 +558,7 @@ class _elseTwoState extends State<elseTwo> {
                               SizedBox(height: 10),
                               Padding(
                                 padding:
-                                    const EdgeInsets.fromLTRB(375, 0, 365, 0),
+                                    const EdgeInsets.fromLTRB(600, 0, 600, 0),
                                 child: Container(
                                   color: Colors.redAccent,
                                   width: double.maxFinite,
@@ -582,9 +574,9 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
-                                            images:
-                                                'assets/images/shubham.png'),
+                                        child: AvatarCustom(
+                                          images: 'assets/images/shubham.png',
+                                        ),
                                       ),
                                       textCustom(
                                           name: "Shubham Kumar",
@@ -597,7 +589,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/niraj.png",
                                         ),
                                       ),
@@ -612,7 +604,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/abhimanyu.png",
                                         ),
                                       ),
@@ -632,7 +624,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/akash.png",
                                         ),
                                       ),
@@ -647,7 +639,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/arvind.png",
                                         ),
                                       ),
@@ -662,7 +654,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/ashish.png",
                                         ),
                                       ),
@@ -683,7 +675,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/avinash.png",
                                         ),
                                       ),
@@ -698,7 +690,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/chandan.png",
                                         ),
                                       ),
@@ -713,7 +705,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images:
                                               "assets/images/purosottam.png",
                                         ),
@@ -735,7 +727,7 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/rohit.png",
                                         ),
                                       ),
@@ -750,12 +742,12 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/rohit.png",
                                         ),
                                       ),
                                       textCustom(
-                                          name: "Sumit Kamal",
+                                          name: "Saurav Kumar",
                                           detail1: "CSE hit 2019",
                                           detail2:
                                               "ex:- onMobile Global Limited"),
@@ -765,15 +757,15 @@ class _elseTwoState extends State<elseTwo> {
                                     children: const [
                                       Padding(
                                         padding: EdgeInsets.only(top: 50),
-                                        child: avatarCustom2(
+                                        child: AvatarCustom(
                                           images: "assets/images/rohit.png",
                                         ),
                                       ),
                                       textCustom(
-                                          name: "Saurav Kumar",
+                                          name: "Sumit Kamal",
                                           detail1: "CHE hit 2014",
                                           detail2:
-                                              "IIT Bombay (PhD student)\n & UG: Silver Medalist"),
+                                              "IIT Bombay (PhD student)\n& UG: Silver Medalist"),
                                     ],
                                   ),
                                 ],
@@ -798,7 +790,7 @@ class _elseTwoState extends State<elseTwo> {
                                     height: 10,
                                   ),
                                   Container(
-                                    margin: EdgeInsets.fromLTRB(435, 0, 435, 0),
+                                    margin: EdgeInsets.fromLTRB(650, 0, 650, 0),
                                     color: Colors.redAccent,
                                     width: double.maxFinite,
                                     height: 3,
@@ -820,7 +812,7 @@ class _elseTwoState extends State<elseTwo> {
                                           textAlign: TextAlign.center,
                                           style: GoogleFonts.robotoMono(
                                             color: Colors.black,
-                                            fontSize: 30,
+                                            fontSize: 40,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -837,7 +829,7 @@ class _elseTwoState extends State<elseTwo> {
                                         textAlign: TextAlign.center,
                                         style: GoogleFonts.robotoMono(
                                           color: Colors.black,
-                                          fontSize: 15,
+                                          fontSize: 20,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
@@ -846,16 +838,15 @@ class _elseTwoState extends State<elseTwo> {
                                   SizedBox(height: 35),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        left: 180, right: 180),
+                                        left: 400, right: 400),
                                     child: ExpansionTileCard(
-                                      elevation: 10.0,
                                       baseColor: Colors.white,
                                       expandedColor: Colors.white,
                                       key: cardA,
                                       title: Text(
                                         "What is the full form of LML?",
                                         style: TextStyle(
-                                            fontSize: 17,
+                                            fontSize: 20,
                                             fontWeight: FontWeight.w500,
                                             color: Colors.black),
                                       ),
@@ -889,16 +880,16 @@ class _elseTwoState extends State<elseTwo> {
                                   SizedBox(height: 15),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        left: 180, right: 180),
+                                        left: 400, right: 400),
                                     child: ExpansionTileCard(
-                                      elevation: 10.0,
+                                      elevation: 5.0,
                                       baseColor: Colors.white,
                                       expandedColor: Colors.white,
                                       key: cardB,
                                       title: Text(
                                         "Who runs LML ?",
                                         style: TextStyle(
-                                            fontSize: 17,
+                                            fontSize: 20,
                                             fontWeight: FontWeight.w500,
                                             color: Colors.black),
                                       ),
@@ -932,16 +923,16 @@ class _elseTwoState extends State<elseTwo> {
                                   SizedBox(height: 15),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        left: 180, right: 180),
+                                        left: 400, right: 400),
                                     child: ExpansionTileCard(
-                                      elevation: 10.0,
+                                      elevation: 5.0,
                                       baseColor: Colors.white,
                                       expandedColor: Colors.white,
                                       key: cardC,
                                       title: Text(
                                         "So many Societies... Is LML just another Society of HIT Haldia?",
                                         style: TextStyle(
-                                            fontSize: 17,
+                                            fontSize: 20,
                                             fontWeight: FontWeight.w500,
                                             color: Colors.black),
                                       ),
@@ -975,16 +966,16 @@ class _elseTwoState extends State<elseTwo> {
                                   SizedBox(height: 15),
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                        left: 180, right: 180),
+                                        left: 400, right: 400),
                                     child: ExpansionTileCard(
-                                      elevation: 10.0,
+                                      elevation: 5.0,
                                       baseColor: Colors.white,
                                       expandedColor: Colors.white,
                                       key: cardD,
                                       title: Text(
                                         "Will i be charged for the webinar or anything?",
                                         style: TextStyle(
-                                            fontSize: 17,
+                                            fontSize: 20,
                                             fontWeight: FontWeight.w500,
                                             color: Colors.black),
                                       ),
@@ -1030,7 +1021,7 @@ class _elseTwoState extends State<elseTwo> {
                                         "More Questions?",
                                         style: TextStyle(
                                             color: Colors.white,
-                                            fontSize: 17,
+                                            fontSize: 20,
                                             fontWeight: FontWeight.w500),
                                       ),
                                       fillColor: Colors.redAccent,
@@ -1048,13 +1039,7 @@ class _elseTwoState extends State<elseTwo> {
                           Container(
                             key: contactusitemKey6,
                             width: double.maxFinite,
-                            height: 430,
-                            child: Image.asset('assets/images/footer.jpg',
-                                fit: BoxFit.fill),
-                          ),
-                          Container(
-                            width: double.maxFinite,
-                            height: 430,
+                            height: 400,
                             color: Colors.black.withOpacity(0.8),
                           ),
                           SingleChildScrollView(
@@ -1063,7 +1048,7 @@ class _elseTwoState extends State<elseTwo> {
                               children: [
                                 Padding(
                                   padding:
-                                      const EdgeInsets.only(left: 70, top: 25),
+                                      const EdgeInsets.only(left: 200, top: 25),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
@@ -1073,7 +1058,7 @@ class _elseTwoState extends State<elseTwo> {
                                         style: TextStyle(
                                             fontWeight: FontWeight.w500,
                                             color: Colors.white,
-                                            fontSize: 30),
+                                            fontSize: 35),
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(left: 4),
@@ -1084,15 +1069,15 @@ class _elseTwoState extends State<elseTwo> {
                                         ),
                                       ),
                                       SizedBox(
-                                        height: 10,
+                                        height: 13,
                                       ),
                                       Container(
-                                        height: 180,
-                                        width: 260,
+                                        height: 200,
+                                        width: 300,
                                         child: Text(
                                           "We, at LML, are here to serve you.We are just like the senior brothers who are always eager to help you all in whatever way possible.If you have any concerns or queries, please feel free to write to us in the field provided on the right-hand side.",
                                           style: TextStyle(
-                                            fontSize: 15,
+                                            fontSize: 17,
                                             fontWeight: FontWeight.w100,
                                             color: Colors.white,
                                           ),
@@ -1103,7 +1088,7 @@ class _elseTwoState extends State<elseTwo> {
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 70,
+                                  width: 100,
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1221,7 +1206,7 @@ class _elseTwoState extends State<elseTwo> {
                                   ],
                                 ),
                                 SizedBox(
-                                  width: 70,
+                                  width: 100,
                                 ),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1238,7 +1223,7 @@ class _elseTwoState extends State<elseTwo> {
                                             Text(
                                               "Name",
                                               style: TextStyle(
-                                                  fontSize: 17,
+                                                  fontSize: 20,
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w600),
                                             ),
@@ -1247,8 +1232,8 @@ class _elseTwoState extends State<elseTwo> {
                                             ),
                                             Container(
                                               key: morequestionKey,
-                                              height: 35.0,
-                                              width: 175.0,
+                                              height: 40.0,
+                                              width: 200.0,
                                               decoration: BoxDecoration(
                                                 color: Colors.white,
                                                 shape: BoxShape.rectangle,
@@ -1265,10 +1250,10 @@ class _elseTwoState extends State<elseTwo> {
                                                 textAlign: TextAlign.center,
                                                 decoration: InputDecoration(
                                                   errorText: nameValidate
-                                                      ? 'Please enter a name'
+                                                      ? 'Please enter name'
                                                       : null,
                                                   labelStyle: TextStyle(
-                                                      fontSize: 7,
+                                                      fontSize: 10,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       color: Colors.black),
@@ -1277,45 +1262,44 @@ class _elseTwoState extends State<elseTwo> {
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
-                                              width: 15,
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 30),
-                                              child: Container(
-                                                height: 35.0,
-                                                width: 175.0,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  shape: BoxShape.rectangle,
-                                                  border: Border.all(
-                                                    color: Colors.redAccent,
-                                                    width: 1.0,
-                                                  ),
-                                                ),
-                                                child: TextField(
-                                                  controller: lastcontroller,
-                                                  onChanged: (text) {
-                                                    last = text;
-                                                  },
-                                                  textAlign: TextAlign.center,
-                                                  decoration: InputDecoration(
-                                                    errorText: lastValidate
-                                                        ? 'Please enter a last name'
-                                                        : null,
-                                                    hintText: 'Last name',
-                                                    labelStyle: TextStyle(
-                                                        fontSize: 7,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        color: Colors.black),
-                                                    border: InputBorder.none,
-                                                  ),
-                                                ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          width: 15,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 30),
+                                          child: Container(
+                                            height: 40.0,
+                                            width: 200.0,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              shape: BoxShape.rectangle,
+                                              border: Border.all(
+                                                color: Colors.redAccent,
+                                                width: 1.0,
                                               ),
                                             ),
-                                          ],
+                                            child: TextField(
+                                              controller: lastcontroller,
+                                              onChanged: (text) {
+                                                last = text;
+                                              },
+                                              textAlign: TextAlign.center,
+                                              decoration: InputDecoration(
+                                                errorText: lastValidate
+                                                    ? 'Please enter  last name'
+                                                    : null,
+                                                hintText: 'Last name',
+                                                labelStyle: TextStyle(
+                                                    fontSize: 10,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.black),
+                                                border: InputBorder.none,
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -1323,53 +1307,52 @@ class _elseTwoState extends State<elseTwo> {
                                       height: 10,
                                     ),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Message",
-                                          style: TextStyle(
-                                              fontSize: 17,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Message",
+                                            style: TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Container(
+                                            height: 150.0,
+                                            width: 420.0,
+                                            decoration: BoxDecoration(
                                               color: Colors.white,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Container(
-                                          height: 150.0,
-                                          width: 320.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            shape: BoxShape.rectangle,
-                                            border: Border.all(
-                                              color: Colors.redAccent,
-                                              width: 1.0,
+                                              shape: BoxShape.rectangle,
+                                              border: Border.all(
+                                                color: Colors.redAccent,
+                                                width: 1.0,
+                                              ),
+                                            ),
+                                            child: TextField(
+                                              controller: msgcontroller,
+                                              onChanged: (text) {
+                                                msg = text;
+                                              },
+                                              keyboardType:
+                                                  TextInputType.multiline,
+                                              minLines: 1,
+                                              maxLines: 30,
+                                              textAlign: TextAlign.center,
+                                              decoration: InputDecoration(
+                                                  errorText: msgValidate
+                                                      ? 'Please enter message'
+                                                      : null,
+                                                  filled: true,
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.grey[800]),
+                                                  hintText: "Type your text",
+                                                  fillColor: Colors.white70),
                                             ),
                                           ),
-                                          child: TextField(
-                                            controller: msgcontroller,
-                                            onChanged: (text) {
-                                              msg = text;
-                                            },
-                                            keyboardType:
-                                                TextInputType.multiline,
-                                            minLines: 1,
-                                            maxLines: 30,
-                                            textAlign: TextAlign.center,
-                                            decoration: InputDecoration(
-                                                errorText: msgValidate
-                                                    ? 'Please enter a message'
-                                                    : null,
-                                                filled: true,
-                                                hintStyle: TextStyle(
-                                                    color: Colors.grey[800]),
-                                                hintText: "Type your text",
-                                                fillColor: Colors.white70),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                        ]),
                                     SizedBox(
                                       height: 20,
                                     ),
@@ -1416,7 +1399,7 @@ class _elseTwoState extends State<elseTwo> {
         ),
       ),
       floatingActionButton: PopupItemLauncher(
-        tag: 'test3',
+        tag: 'test',
         child: Container(
           width: 70,
           height: 70,
@@ -1450,7 +1433,7 @@ class _elseTwoState extends State<elseTwo> {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
           elevation: 2,
-          tag: 'test3',
+          tag: 'test',
           child: Container(
             height: 300,
             width: 450,
